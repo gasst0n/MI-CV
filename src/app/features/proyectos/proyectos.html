@@ -1,0 +1,38 @@
+<section id="projects" class="px-6 pt-16 pb-24 max-w-6xl mx-auto scroll-mt-24">
+  <!-- Título -->
+  <div class="text-center mb-16">
+    <h2 class="text-3xl md:text-4xl font-semibold mb-4">Proyectos</h2>
+    <p class="text-slate-400 max-w-xl mx-auto">
+      Experiencias prácticas y desarrollos reales en entornos productivos.
+    </p>
+  </div>
+
+  <!-- Cards -->
+  <div class="grid md:grid-cols-2 gap-8">
+    <div
+      *ngFor="let project of projects"
+      class="glass rounded-2xl p-6 md:p-8 transition-all duration-300 hover:-translate-y-1 hover:shadow-xl"
+    >
+      <h3 class="text-xl font-semibold mb-1">
+        {{ project.title }}
+      </h3>
+
+      <p class="text-sm text-slate-400 mb-4">
+        {{ project.context }}
+      </p>
+
+      <p class="text-slate-300 leading-relaxed mb-6">
+        {{ project.description }}
+      </p>
+
+      <div class="flex flex-wrap gap-2">
+        <span
+          *ngFor="let tech of project.stack"
+          class="px-3 py-1 text-xs rounded-full bg-white/10 text-slate-300"
+        >
+          {{ tech }}
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
