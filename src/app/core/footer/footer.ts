@@ -9,11 +9,13 @@ export class FooterComponent implements OnInit {
   visits = 0;
   currentYear = new Date().getFullYear();
 
-  ngOnInit(): void {
-    const storedVisits = localStorage.getItem('portfolio_visits');
-
-    this.visits = storedVisits ? Number(storedVisits) + 1 : 1;
-
-    localStorage.setItem('portfolio_visits', this.visits.toString());
+  async ngOnInit() {
+    try {
+      const response = await fetch('/api/visits');
+      const data = await response.json();
+      this.visits = data.visits;
+    } catch (error) {
+      console.error('Error loading visits counter');
+    }
   }
 }
