@@ -1,3 +1,7 @@
+export const config = {
+  runtime: 'nodejs',
+};
+
 export default async function handler(req: any, res: any) {
   try {
     const url = process.env.UPSTASH_REDIS_REST_URL;
@@ -17,7 +21,8 @@ export default async function handler(req: any, res: any) {
 
     return res.status(200).json({ visits: data.result });
   } catch (error) {
-    console.error('VISITS ERROR:', error);
+    console.error('VISITS API ERROR:', error);
     return res.status(500).json({ error: 'Failed to count visits' });
   }
 }
+``;
