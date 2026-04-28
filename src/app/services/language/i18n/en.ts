@@ -1,6 +1,6 @@
 export const EN = {
   heroTitle: 'Hi, I am',
-  role: 'Technical Functional Analyst',
+  role: 'Technical Functional Analyst | Integrations Analyst | Full Stack',
 
   intro:
     'Technical Functional Analyst with experience in corporate environments, specialized in IT integrations, process automation, and the development of technological solutions. I have strong experience in requirements analysis, integration design, REST API documentation, and coordination between technical and business teams, actively contributing to the implementation of secure, scalable systems aligned with organizational goals.',

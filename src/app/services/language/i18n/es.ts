@@ -1,6 +1,6 @@
 export const ES = {
   heroTitle: 'Hola, soy',
-  role: 'Analista Técnico-Funcional',
+  role: 'Analista Técnico-Funcional | Analista de Integraciones | Full Stack',
 
   intro:
     'Analista Técnico‑Funcional con experiencia en entornos corporativos, especializado en integraciones IT, automatización de procesos y desarrollo de soluciones tecnológicas. Cuento con experiencia en el análisis de requerimientos, diseño de integraciones, documentación de APIs REST y coordinación entre equipos técnicos y de negocio, participando activamente en la implementación de sistemas seguros, escalables y alineados a los objetivos de la organización.',
