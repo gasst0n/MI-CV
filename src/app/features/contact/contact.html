@@ -1,21 +1,24 @@
 <section id="contact" class="px-6 pt-16 pb-32 max-w-4xl mx-auto text-center scroll-mt-24">
   <!-- Título -->
-  <h2 class="text-3xl md:text-4xl font-semibold mb-6">Contacto</h2>
+  <h2 class="text-3xl md:text-4xl font-semibold mb-6">
+    {{ i18n.t('contactTitle') }}
+  </h2>
 
-  <p class="text-slate-400 mb-10 max-w-xl mx-auto">
-    Estoy abierto a nuevas oportunidades, proyectos o charlas técnicas.
+  <p class="mb-10 max-w-xl mx-auto text-slate-700 dark:text-slate-300">
+    {{ i18n.t('contactSubtitle') }}
   </p>
 
-  <!-- CTA principal -->
+  <!-- CTAs -->
   <div class="flex flex-col items-center gap-4">
+    <!-- LinkedIn -->
     <a
       href="https://www.linkedin.com/in/gast%C3%B3n-godoy"
       target="_blank"
       rel="noopener noreferrer"
-      aria-label="Ver perfil de LinkedIn"
+      [attr.aria-label]="i18n.t('contactLinkedIn')"
       class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#0A66C2] text-white font-medium transition-all duration-200 hover:scale-105 hover:bg-[#004182] active:scale-95 shadow-[0_8px_30px_rgba(10,102,194,0.35)]"
     >
-      <!-- Ícono LinkedIn (SVG inline) -->
+      <!-- Ícono LinkedIn -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -23,12 +26,22 @@
         fill="currentColor"
       >
         <path
-          d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5 1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24 23.98h4.52V7.9H.24v16.08zM8.54 7.9h4.33v2.2h.06c.6-1.13 2.06-2.32 4.24-2.32 4.53 0 5.37 2.98 5.37 6.85v9.35h-4.52v-8.28c0-1.98-.04-4.52-2.75-4.52-2.75 0-3.17 2.15-3.17 4.38v8.42H8.54V7.9z"
+          d="M4.98 3.5C4.98 4.88 3.88 6 2.5 6S0 4.88 0 3.5
+             1.12 1 2.5 1 4.98 2.12 4.98 3.5zM.24
+             23.98h4.52V7.9H.24v16.08zM8.54
+             7.9h4.33v2.2h.06c.6-1.13
+             2.06-2.32 4.24-2.32 4.53
+             0 5.37 2.98 5.37
+             6.85v9.35h-4.52v-8.28c0-1.98-.04-4.52-2.75-4.52-2.75
+             0-3.17 2.15-3.17
+             4.38v8.42H8.54V7.9z"
         />
       </svg>
 
-      Contáctame por LinkedIn
+      {{ i18n.t('contactLinkedIn') }}
     </a>
+
+    <!-- Mail -->
     <a
       [href]="'mailto:' + contact.email"
       class="inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full bg-gray-500 text-white font-medium transition-all duration-200 hover:scale-105 hover:bg-gray-400 active:scale-95"
@@ -41,19 +54,31 @@
         fill="currentColor"
       >
         <path
-          d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2zm0 2v.01L12 13 4 6.01V6h16zM4 18V8.24l7.4 6.17a1 1 0 0 0 1.2 0L20 8.24V18H4z"
+          d="M20 4H4a2 2 0 0
+             0-2 2v12a2 2
+             0 0 0 2 2h16a2
+             2 0 0 0 2-2V6a2
+             2 0 0 0-2-2zm0
+             2v.01L12 13 4
+             6.01V6h16zM4
+             18V8.24l7.4
+             6.17a1 1 0 0
+             0 1.2 0L20
+             8.24V18H4z"
         />
       </svg>
 
-      Contáctame por Mail
+      {{ i18n.t('contactEmail') }}
     </a>
+
+    <!-- WhatsApp -->
     <a
       [href]="'https://wa.me/' + contact.phone.replace(/\\s|-/g, '')"
       target="_blank"
-      aria-label="Escribime por WhatsApp"
+      [attr.aria-label]="i18n.t('contactWhatsapp')"
       class="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-[#25D366] text-black font-medium transition-all duration-200 hover:scale-105 hover:bg-[#1ebe5d] active:scale-95 shadow-[0_8px_30px_rgba(37,211,102,0.35)]"
     >
-      <!-- Ícono WhatsApp (SVG inline, liviano) -->
+      <!-- Ícono WhatsApp -->
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 24 24"
@@ -61,22 +86,21 @@
         fill="currentColor"
       >
         <path
-          d="M12 2a10 10 0 0 1 8.65 15.06L22 22l-5.06-1.32A10 10 0 1 1 12 2zm0 2a8 8 0 1 0 4.21 14.93l.3.18 2.96.77-.78-2.96.19-.3A8 8 0 0 0 12 4zm-2.1 4.2c.2-.47.4-.48.57-.48h.49c.16 0 .41-.06.63.47.21.52.72 1.77.78 1.9.06.13.1.28 0 .45-.1.17-.15.27-.3.41-.15.14-.31.32-.44.43-.15.13-.3.28-.13.55.17.27.76 1.25 1.63 2.02 1.13 1.01 2.07 1.33 2.33 1.48.27.14.43.12.59-.07.16-.19.67-.78.85-1.05.17-.27.35-.22.59-.13.24.1 1.51.71 1.77.84.26.13.43.19.5.3.06.1.06.6-.14 1.18-.21.59-1.24 1.15-1.74 1.17-.46.02-.9.07-3.02-.8-2.56-1.06-4.2-3.63-4.33-3.8-.13-.16-1.05-1.4-1.05-2.67 0-1.27.67-1.9.9-2.15z"
+          d="M12 2a10 10 0 0 1
+             8.65 15.06L22
+             22l-5.06-1.32A10
+             10 0 1 1 12 2z"
         />
       </svg>
 
-      Contáctame por WhatsApp
+      {{ i18n.t('contactWhatsapp') }}
     </a>
   </div>
 
   <!-- Info adicional -->
-  <div class="mt-10 text-sm text-slate-400 space-y-2">
+  <div class="mt-10 text-sm space-y-2 text-slate-700 dark:text-slate-300">
     <p>{{ contact.location }}</p>
 
-    <div class="flex justify-center gap-6">
-      <a [href]="contact.linkedin" target="_blank" class="hover:text-white transition">
-        LinkedIn
-      </a>
-    </div>
+    <div class="flex justify-center gap-6"></div>
   </div>
 </section>

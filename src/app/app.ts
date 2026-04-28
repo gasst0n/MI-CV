@@ -10,6 +10,7 @@ import { EducationComponent } from './features/education/education';
 import { Contact } from './features/contact/contact';
 import { SkillsComponent } from './features/skills/skills';
 import { FooterComponent } from './core/footer/footer';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -29,5 +30,8 @@ import { FooterComponent } from './core/footer/footer';
   styleUrl: './app.css',
 })
 export class App {
+  constructor(private theme: ThemeService) {
+    this.theme.initTheme();
+  }
   protected readonly title = signal('cv-portfolio');
 }

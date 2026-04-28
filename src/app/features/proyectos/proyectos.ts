@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { Project, PROJECTS_DATA } from '../../data/projects.data';
 import { CommonModule } from '@angular/common';
+import { Project, PROJECTS_DATA } from '../../data/projects.data';
+import { I18nService } from '../../services/i18n.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-proyectos',
@@ -10,4 +12,10 @@ import { CommonModule } from '@angular/common';
 })
 export class Proyectos {
   projects: Project[] = PROJECTS_DATA;
+
+  constructor(
+    public i18n: I18nService,
+    public lang: LanguageService,
+  ) {}
 }
+``;

@@ -1,38 +1,40 @@
+import { ES } from '../services/language/i18n/es';
+
 export interface Experience {
-  role: string;
+  roleKey: keyof typeof ES;
   company: string;
   period: string;
   logo: string;
-  responsibilities: string[];
+  responsibilitiesKeys: Array<keyof typeof ES>;
   stack?: string[];
 }
 
 export const EXPERIENCE_DATA: Experience[] = [
   {
-    role: 'Analista Técnico-Funcional | Analista de Integraciones | Dev',
+    roleKey: 'experienceCorreoRole',
     company: 'Correo Argentino',
-    period: '2021 – Presente',
+    period: '2021 – Present',
     logo: 'assets/logo-correo.png',
-    responsibilities: [
-      'Integración y automatización de procesos mediante Service Manager y MidPoint para provisión de identidades.',
-      'Análisis de requerimientos funcionales y técnicos para integraciones internas.',
-      'Diseño y documentación técnica de APIs REST en entornos productivos.',
-      'Implementación, homologación y soporte de soluciones tecnológicas.',
-      'Coordinación con proveedores y áreas de negocio, asegurando soluciones seguras y escalables.',
-      'Desarrollo de sistema interno de Asset Management (frontend y backend).',
+    responsibilitiesKeys: [
+      'experienceCorreoResp1',
+      'experienceCorreoResp2',
+      'experienceCorreoResp3',
+      'experienceCorreoResp4',
+      'experienceCorreoResp5',
+      'experienceCorreoResp6',
     ],
     stack: ['APIs REST', 'Service Manager', 'MidPoint', 'Angular', 'Node.js', 'SQL', 'JWT'],
   },
   {
-    role: 'Analista de Soporte On Site N1 / N2',
+    roleKey: 'experienceStiRole',
     company: 'STI Network',
     period: '2019 – 2021',
     logo: 'assets/logo-sti.png',
-    responsibilities: [
-      'Soporte técnico N1 y N2 en entornos corporativos.',
-      'Administración básica de redes: configuración de switches, diagnóstico de conectividad y resolución de incidentes.',
-      'Gestión y seguimiento de incidencias mediante herramientas de ticketing.',
-      'Soporte a infraestructura IT y usuarios finales.',
+    responsibilitiesKeys: [
+      'experienceStiResp1',
+      'experienceStiResp2',
+      'experienceStiResp3',
+      'experienceStiResp4',
     ],
     stack: ['Redes', 'Soporte técnico', 'Switches', 'Ticketing', 'Infraestructura IT'],
   },

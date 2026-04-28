@@ -1,24 +1,23 @@
 <section id="experience" class="px-6 pt-16 pb-24 max-w-5xl mx-auto scroll-mt-24">
-  <!-- Título de sección -->
+  <!-- Título -->
   <div class="text-center mb-20">
-    <h2 class="text-3xl md:text-4xl font-semibold mb-4">Experiencias Laborales</h2>
-    <p class="text-slate-400 max-w-xl mx-auto">
-      Experiencia profesional en entornos corporativos, integraciones y desarrollo de soluciones
-      tecnológicas.
+    <h2 class="text-3xl md:text-4xl font-semibold mb-4">
+      {{ i18n.t('experienceTitle') }}
+    </h2>
+    <p class="max-w-xl mx-auto text-slate-700 dark:text-slate-300">
+      {{ i18n.t('experienceSubtitle') }}
     </p>
   </div>
 
-  <!-- Cards -->
   <div class="space-y-20 md:space-y-24">
     <div
       *ngFor="let exp of experiences; let i = index"
-      class="glass rounded-2xl p-5 md:p-7 reveal transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-white/5"
+      class="glass rounded-2xl p-5 md:p-7 reveal transition-all duration-300 hover:-translate-y-1 hover:shadow-xl border border-slate-200 dark:border-white/5"
       reveal
       [style.transitionDelay.ms]="i * 160"
     >
       <!-- Header -->
       <div class="flex items-start gap-4 mb-5">
-        <!-- Logo empresa -->
         <img
           *ngIf="exp.logo"
           [src]="exp.logo"
@@ -26,27 +25,28 @@
           class="w-14 h-14 object-contain rounded-md bg-white p-1"
         />
 
-        <!-- Info principal -->
         <div class="flex flex-1 flex-col md:flex-row md:items-center md:justify-between">
           <div>
             <h3 class="text-xl font-semibold">
-              {{ exp.role }}
+              {{ i18n.t(exp.roleKey) }}
             </h3>
-            <p class="text-sm text-slate-400">
+            <p class="text-sm text-slate-600 dark:text-slate-400">
               {{ exp.company }}
             </p>
           </div>
 
-          <span class="mt-3 md:mt-0 text-xs px-3 py-1 rounded-full bg-white/10 text-slate-300">
+          <span
+            class="mt-3 md:mt-0 text-xs px-3 py-1 rounded-full bg-slate-200 text-slate-900 dark:bg-white/10 dark:text-slate-300"
+          >
             {{ exp.period }}
           </span>
         </div>
       </div>
 
       <!-- Responsabilidades -->
-      <ul class="list-disc list-inside space-y-3 text-slate-300 mb-6">
-        <li *ngFor="let item of exp.responsibilities">
-          {{ item }}
+      <ul class="list-disc list-inside space-y-3 mb-6">
+        <li *ngFor="let key of exp.responsibilitiesKeys" class="leading-relaxed">
+          {{ i18n.t(key) }}
         </li>
       </ul>
 
@@ -54,7 +54,7 @@
       <div *ngIf="exp.stack?.length" class="flex flex-wrap gap-2">
         <span
           *ngFor="let tech of exp.stack"
-          class="px-3 py-1 text-xs rounded-full bg-white/10 text-slate-300"
+          class="px-3 py-1 text-xs rounded-full bg-slate-200 text-slate-900 dark:bg-white/10 dark:text-slate-300"
         >
           {{ tech }}
         </span>

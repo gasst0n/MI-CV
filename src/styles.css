@@ -57,3 +57,104 @@ body {
 .delay-300 {
   animation-delay: 300ms;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ======== RESET / BASE ======== */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply transition-colors duration-300 ease-in-out;
+  background-color: theme('colors.background.light');
+  color: theme('colors.slate.900');
+}
+
+/* ======== DARK MODE ======== */
+html.dark body {
+  background-color: theme('colors.background.dark');
+  color: theme('colors.slate.100');
+}
+
+/* ======== GLASS EFFECT ======== */
+.glass {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(14px);
+}
+
+html.dark .glass {
+  background: rgba(15, 23, 42, 0.6); /* slate-900 */
+}
+
+/* ======== TEXTO ======== */
+html.dark p,
+html.dark span,
+html.dark li {
+  @apply text-slate-300;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================
+   BASE GLOBAL
+   ========================= */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply transition-colors duration-300 ease-in-out;
+}
+
+/* =========================
+   LIGHT MODE (default)
+   ========================= */
+
+body {
+  background-color: #f8fafc; /* slate-50 */
+  color: #020617; /* slate-950 */
+}
+
+p,
+span,
+li,
+small,
+label {
+  color: #020617; /* texto oscuro en light */
+}
+
+/* =========================
+   DARK MODE
+   ========================= */
+
+html.dark body {
+  background-color: #0b1220; /* fondo dark elegante */
+  color: #e5e7eb; /* slate-200 */
+}
+
+html.dark p,
+html.dark span,
+html.dark li,
+html.dark small,
+html.dark label {
+  color: #cbd5f5; /* slate-300 */
+}
+
+/* =========================
+   GLASS EFFECT
+   ========================= */
+
+.glass {
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(16px);
+}
+
+html.dark .glass {
+  background: rgba(15, 23, 42, 0.65);
+}

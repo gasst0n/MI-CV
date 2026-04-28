@@ -1,35 +1,77 @@
 <section class="px-6 pt-48 pb-32 text-center">
   <div class="max-w-4xl mx-auto">
-    <br />
-    <br />
+    <!-- CONTROLES -->
+    <div class="flex justify-end gap-3 mb-6 animate-fade-up">
+      <!-- Switch Idioma -->
+      <button
+        role="switch"
+        aria-label="Cambiar idioma"
+        (click)="lang.toggle()"
+        class="relative inline-flex h-8 w-16 items-center rounded-full bg-slate-300 dark:bg-slate-700 transition-colors duration-300"
+      >
+        <span
+          class="absolute inset-0 flex items-center justify-between px-2 text-[10px] font-medium text-slate-600 dark:text-slate-300"
+        >
+          <span>ES</span>
+          <span>EN</span>
+        </span>
+
+        <span
+          class="absolute left-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white text-[10px] font-semibold shadow transition-transform duration-300 active:scale-95"
+          [class.translate-x-8]="lang.current === 'en'"
+        >
+          {{ lang.current.toUpperCase() }}
+        </span>
+      </button>
+
+      <!-- Switch Tema -->
+      <button
+        role="switch"
+        aria-label="Cambiar tema"
+        (click)="theme.toggleTheme()"
+        class="relative inline-flex h-8 w-16 items-center rounded-full bg-yellow-400 dark:bg-slate-800 transition-colors duration-300"
+      >
+        <span class="absolute inset-0 flex items-center justify-between px-2 text-sm">
+          <span>☀️</span>
+          <span>🌙</span>
+        </span>
+
+        <span
+          class="absolute left-1 inline-flex h-6 w-6 items-center justify-center rounded-full bg-white shadow transition-transform duration-300 active:scale-95"
+          [class.translate-x-8]="theme.isDark()"
+        >
+          {{ theme.isDark() ? '🌙' : '☀️' }}
+        </span>
+      </button>
+    </div>
+
     <!-- FOTO -->
     <div class="mb-8 animate-fade-up">
       <img
         src="assets/foto_cv_bn_mejorada_fiel.png"
         alt="Foto perfil"
-        class="mx-auto w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
+        class="mx-auto w-36 h-36 md:w-44 md:h-44 rounded-full object-cover border border-slate-300 dark:border-white/15 shadow-[0_10px_40px_rgba(0,0,0,0.6)]"
       />
     </div>
 
     <!-- TITULO -->
-    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6 animate-fade-up delay-150">
-      Hola, soy
+    <h2 class="text-4xl md:text-6xl font-bold tracking-tight mb-6" [@langTransition]="langIndex">
+      {{ i18n.t('heroTitle') }}
       <span class="text-blue-400">{{ personal.name }}</span>
     </h2>
 
-    <!-- DESCRIPCIÓN / ROL -->
-    <p class="text-lg md:text-xl text-slate-400 max-w-2xl mx-auto mb-10 animate-fade-up delay-300">
-      {{ personal.role }}
+    <!-- ROL -->
+    <p
+      class="text-lg md:text-xl max-w-2xl mx-auto mb-10 text-slate-700 dark:text-slate-300"
+      [@langTransition]="langIndex"
+    >
+      {{ i18n.t('role') }}
     </p>
-    <br />
-    <div class="mt-6 max-w-3xl mx-auto animate-fade-up delay-450">
-      <p class="text-base md:text-lg text-slate-300 leading-relaxed">
-        Analista Técnico‑Funcional con experiencia en entornos corporativos, especializado en
-        integraciones IT, automatización de procesos y desarrollo de soluciones tecnológicas. Cuento
-        con experiencia en el análisis de requerimientos, diseño de integraciones, documentación de
-        APIs REST y coordinación entre equipos técnicos y de negocio, participando activamente en la
-        implementación de sistemas seguros, escalables y alineados a los objetivos de la
-        organización.
+
+    <!-- PRESENTACIÓN -->
+    <div class="mt-6 max-w-3xl mx-auto">
+      <p class="text-base md:text-lg leading-relaxed" [@langTransition]="langIndex">
+        {{ i18n.t('intro') }}
       </p>
     </div>
   </div>

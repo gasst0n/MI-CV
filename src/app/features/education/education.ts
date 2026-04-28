@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
-import { EDUCATION_DATA, Education } from '../../data/education.data';
 import { CommonModule } from '@angular/common';
+import { EDUCATION_DATA, Education } from '../../data/education.data';
+import { I18nService } from '../../services/i18n.service';
+import { LanguageService } from '../../services/language.service';
 
 @Component({
   selector: 'app-education',
@@ -10,4 +12,9 @@ import { CommonModule } from '@angular/common';
 })
 export class EducationComponent {
   education: Education[] = EDUCATION_DATA;
+
+  constructor(
+    public i18n: I18nService,
+    public lang: LanguageService,
+  ) {}
 }

@@ -1,12 +1,18 @@
 import { Component } from '@angular/core';
 import { PERSONAL_DATA } from '../../data/personal.data';
+import { LanguageService } from '../../services/language.service';
+import { I18nService } from '../../services/i18n.service';
 
 @Component({
   selector: 'app-header',
-  imports: [],
+  standalone: true,
   templateUrl: './header.html',
-  styles: ``,
 })
 export class Header {
   personal = PERSONAL_DATA;
+
+  constructor(
+    public lang: LanguageService,
+    public i18n: I18nService,
+  ) {}
 }
